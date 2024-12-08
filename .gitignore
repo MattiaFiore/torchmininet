@@ -1,0 +1,8 @@
+/data/
+/log/
+/pcap/
+/pytorch_download/
+/torchvision_download/
+/pictures/
+/topology.json
+
