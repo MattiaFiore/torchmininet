@@ -2,7 +2,8 @@
 /log/
 /pcap/
 /pytorch_download/
-/torchvision_download/
+/torch_vision/
+/pandas_download/
 /pictures/
 /topology.json
 

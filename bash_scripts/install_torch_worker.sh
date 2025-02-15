@@ -7,3 +7,5 @@ cd ..
 cd torchvision_download
 # Install TorchVision from the local directory
 pip install --no-index --find-links . torchvision
+cd ..
+python3 -m pip install --no-index --find-links . pandas
