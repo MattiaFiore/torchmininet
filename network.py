@@ -2,7 +2,8 @@ from p4utils.mininetlib.network_API import NetworkAPI
 import networkx as nx 
 import matplotlib.pyplot as plt 
 import os
-
+import torchvision.datasets as datasets
+import psutil
 
 net = NetworkAPI()
 
@@ -68,9 +69,18 @@ def set_cpu_affinity(host, cpus):
     cpu_mask = ''.join(['1' if i in cpus else '0' for i in range(8)])  # Example for 8 cores
     host.cmd(f"taskset -c {cpu_mask} {host.name} &")
 
+def download_mnist(download_folder):
+    # Download the MNIST test dataset
+    datasets.MNIST(
+        root=download_folder,  # Directory to save the dataset
+        train=False,           # Download the test set
+        download=True,         # Download if not already present
+    )
 
 
 
+# MNIST on data folder
+download_mnist('data')
 
 # Assignment strategy
 net.l2()
@@ -78,7 +88,6 @@ net.l2()
 # Nodes general options
 #net.enablePcapDumpAll()
 #net.enableLogAll()
-
 # Start network
+# net.disableCli()
 net.startNetwork()
-
